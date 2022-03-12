@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="dygraph.min.css">
+    <title>Label styles</title>
+    <script type="text/javascript" src="dygraph.min.js"></script>
+    <style type="text/css">
+      /*
+      NOTE: dygraphs does set some properties on the built-in legend, e.g.
+      background-color and left. If you wish to override these, you can add
+      "!important" to your CSS styles, as below.
+
+      The full list of styles for which this is necessary are listed in
+      plugins/legend.js. They are:
+      o position
+      o font-size
+      o z-index
+      o width
+      o top
+      o left
+      o background
+      o line-height
+      o text-align
+      o overflow
+      */
+      #div_g1 .dygraph-legend {
+        width: 120px;
+        background-color: transparent !important;
+        left: 1000px !important;
+        top: 1px !important;
+        font-size: 15px !important;
+      }
+      #div_g2 .dygraph-legend {
+        width: 120px;
+        background-color: transparent !important;
+        left: 1000px !important;
+        top: 1px !important;
+        font-size: 15px !important;
+      }
+    </style>
+  </head>
+  <body>
+   <div id="div_g1" style="width:1000px; height:300px; "></div>
+<p>Volta1: 
+<input type=checkbox id=0 onClick="stockchange(this)" checked >
+<label for="0"> P</label>
+<input type=checkbox id=1 onClick="stockchange(this)" >
+<label for="1"> DE</label>
+<input type=checkbox id=2 onClick="stockchange(this)" >
+<label for="2"> GE</label>
+<input type=checkbox id=3 onClick="stockchange(this)" checked >
+<label for="3"> PVu</label>
+<input type=checkbox id=4 onClick="stockchange(this)" >
+<label for="4"> DCBus</label>
+<input type=checkbox id=5 onClick="stockchange(this)" >
+<label for="5"> PVi</label>
+<input type=checkbox id=6 onClick="stockchange(this)" checked >
+<label for="6"> ACu</label>
+<input type=checkbox id=7 onClick="stockchange(this)" >
+<label for="7"> ACi</label>
+<input type=checkbox id=8 onClick="stockchange(this)" >
+<label for="8"> f</label>
+<input type=checkbox id=9 onClick="stockchange(this)" >
+<label for="9"> T</label>
+<input type=checkbox id=10 onClick="stockchange(this)" >
+<label for="10"> iRCD</label>
+<input type=checkbox id=11 onClick="stockchange(this)" >
+<label for="11"> S</label>
+<input type=checkbox id=12 onClick="stockchange(this)" >
+<label for="12"> fi</label>
+</p>
+
+   <div id="div_g2" style="width:1000px; height:300px; "></div>
+<p>Volta2: 
+<input type=checkbox id=0 onClick="stockchange2(this)" >
+<label for="0"> P</label>
+<input type=checkbox id=1 onClick="stockchange2(this)" >
+<label for="1"> DE</label>
+<input type=checkbox id=2 onClick="stockchange2(this)" >
+<label for="2"> GE</label>
+<input type=checkbox id=3 onClick="stockchange2(this)" >
+<label for="3"> PVu</label>
+<input type=checkbox id=4 onClick="stockchange2(this)" >
+<label for="4"> DCBus</label>
+<input type=checkbox id=5 onClick="stockchange2(this)" checked >
+<label for="5"> PVi</label>
+<input type=checkbox id=6 onClick="stockchange2(this)" >
+<label for="6"> ACu</label>
+<input type=checkbox id=7 onClick="stockchange2(this)" checked >
+<label for="7"> ACi</label>
+<input type=checkbox id=8 onClick="stockchange2(this)" >
+<label for="8"> f</label>
+<input type=checkbox id=9 onClick="stockchange2(this)" >
+<label for="9"> T</label>
+<input type=checkbox id=10 onClick="stockchange2(this)" checked >
+<label for="10"> iRCD</label>
+<input type=checkbox id=11 onClick="stockchange2(this)" >
+<label for="11"> S</label>
+<input type=checkbox id=12 onClick="stockchange2(this)" >
+<label for="12"> fi</label>
+
+</p>
+  <script type="text/javascript">
+      g1 = new Dygraph( document.getElementById("div_g1"),
+	      "volta.dat", {
+              rollPeriod: 1,
+              showRoller: true,
+//            errorBars: true,
+              labelsSeparateLines: true,
+//            showRangeSelector: true,
+//		     		 0  1  2  3   4     5   6   7   8 9 10   11 12 
+//         		 P ,DE,GE,PVu,DCBUS,PVi,ACu,ACi,f,T,iRCD,S ,fi
+  visibility: [1 ,0 ,0 ,1  ,0    ,0  ,1  ,0  ,0,0,0   ,0 ,0 ],
+
+//	  highlightSeriesOpts: {
+//          strokeWidth: 2, // grubosc lini
+//          strokeBorderWidth: 1,
+//          highlightCircleSize: 1,
+//        },
+              axes: { y: {  axisLabelWidth: 35  }  }
+
+		});
+
+function stockchange(el) {
+            g1.setVisibility(el.id, el.checked);
+        }
+//    setStatus();
+      g2 = new Dygraph( document.getElementById("div_g2"),
+	      "volta.dat", {
+              rollPeriod: 1,
+              showRoller: true,
+              labelsSeparateLines: true,
+//            showRangeSelector: true,
+//                   0  1  2  3   4     5   6   7   8 9 10   11 12 
+//                   P ,DE,GE,PVu,DCBUS,PVi,ACu,ACi,f,T,iRCD,S,fi
+        visibility: [0 ,0 ,0 ,0  ,0    ,1  ,0  ,1  ,0,0,1   ,0,0 ],
+             axes: { y: {  axisLabelWidth: 35  }  }
+		});
+function stockchange2(el) {
+            g2.setVisibility(el.id, el.checked);
+        }
+    </script>
+
+  </body>
+</html>
