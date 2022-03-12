@@ -7,5 +7,6 @@
 #cp /home/pi/data/watta.dat .
 git commit -a -m 'ok'
 git push -u origin main
+#git branch -M main
 #git add [file]
 #git rm -f [file]
