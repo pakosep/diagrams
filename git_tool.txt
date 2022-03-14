@@ -1,0 +1,8 @@
+ssh -T git@github.com
+git remote -v
+git remote set-url origin git@github.com:pakosep/stm32
+git config --global user.email sepako@o2.pl
+git config --global user.name pakosep
+git add -A
+git commit -am OK
+git push 
