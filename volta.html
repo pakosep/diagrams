@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="dygraph.min.css">
-    <title>Spirvent 4KW</title>
+    <title>Volta 4KW</title>
     <script type="text/javascript" src="dygraph.min.js"></script>
     <style type="text/css">
       /*
@@ -92,7 +92,7 @@
 <label for="8"> f</label>
 <input type=checkbox id=9 onClick="stockchange2(this)" >
 <label for="9"> T</label>
-<input type=checkbox id=10 onClick="stockchange2(this)" >
+<input type=checkbox id=10 onClick="stockchange2(this)" checked >
 <label for="10"> iRCD</label>
 <input type=checkbox id=11 onClick="stockchange2(this)" >
 <label for="11"> S</label>
@@ -133,7 +133,7 @@ function stockchange(el) {
 //            showRangeSelector: true,
 //                   0  1  2  3   4     5   6   7   8 9 10   11 12 
 //                   P ,DE,GE,PVu,DCBUS,PVi,ACu,ACi,f,T,iRCD,S,fi
-        visibility: [0 ,0 ,0 ,0  ,0    ,1  ,0  ,1  ,0,0,0   ,0,0 ],
+        visibility: [0 ,0 ,0 ,0  ,0    ,1  ,0  ,1  ,0,0,1   ,0,0 ],
              axes: { y: {  axisLabelWidth: 35  }  }
 		});
 function stockchange2(el) {
