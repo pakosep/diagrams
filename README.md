@@ -1,3 +1,3 @@
 # Diagrams
-![alt text](https://github.com/pakosep/diagrams/blob/master/bluepill.png)
+![alt text](bluepill.png "Test png")
 https://streamable.com/yx5ejx
